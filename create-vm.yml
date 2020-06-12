@@ -4,3 +4,6 @@
   tasks:
     - debug:
         msg: "This is a playbook to create an instance"
+
+    - debug:
+        message: "There is a new image version to use"
