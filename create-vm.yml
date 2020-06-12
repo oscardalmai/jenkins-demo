@@ -6,4 +6,4 @@
         msg: "This is a playbook to create an instance"
 
     - debug:
-        message: "There is a new image version to use on server creation"
+        msg: "There is a new image version to use on server creation"
