@@ -9,7 +9,7 @@ pipeline {
     
     stage('Update Project') {
       steps {
-        ansibleTowerProjectSync(towerServer: 'AWX TEST', towerCredentialsId: '5372add5-75b6-4f30-8dbc-8e5dc7eebdac', project: 'CICD', importTowerLogs: true)
+        ansibleTowerProjectSync(towerServer: 'AWX TEST', towerCredentialsId: '5372add5-75b6-4f30-8dbc-8e5dc7eebdac', project: 'Jenkins Demo', importTowerLogs: true)
       }
     }
 
