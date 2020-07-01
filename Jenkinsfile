@@ -1,22 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage ('Display versions') {
-      agent {
-        docker {
-          image 'quay.io/ansible/molecule:3.0.2'
-          args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
-         }
-      }
-      steps {
-        sh '''
-          docker -v
-          ansible --version
-          molecule --version
-        '''
-      }
-    }
-
     stage ('Molecule test') {
       agent {
         docker {
