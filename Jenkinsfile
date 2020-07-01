@@ -1,9 +1,31 @@
 pipeline {
   agent any
   stages {
-    stage('Print Branch Name') {
+    agent {
+        docker {
+          image 'quay.io/ansible/molecule:3.0.2'
+          args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+         }
+      }
+    stage ('Display versions') {
       steps {
-        echo "BRANCH_NAME = ${env.BRANCH_NAME}"
+        sh '''
+          docker -v
+          ansible --version
+          molecule --version
+        '''
+      }
+    }
+
+    stage ('Molecule test') {
+      agent {
+        docker {
+          image 'quay.io/ansible/molecule:3.0.2'
+          args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+         }
+      }
+      steps {
+        sh 'molecule test'
       }
     }
     
