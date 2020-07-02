@@ -3,4 +3,4 @@
   gather_facts: false
   tasks:
     - debug:
-        mesg: "This is a playbook to create an instance"
+        msg: "This is a playbook to create an instance"
